@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://togetherever.pages.dev/sitemap.xml
