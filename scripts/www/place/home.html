@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link rel="icon" type="image/png" href="/image/icon/c4ca4238a0b923820dcc509a6f75849b.png">
+    <title>TogetherEver｜主页</title>
+    <link rel="stylesheet" href="/style/home.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-content"></div>
+    </div>
+    <div class="home-card" id="homeCard">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="/image/icon/c4ca4238a0b923820dcc509a6f75849b.png" alt="TogetherEver">
+                    </div>
+                    TogetherEver
+                </div>
+                <div class="dropdown-trigger" id="notification-trigger" aria-label="打开通知面板"></div>
+            </div>
+            <div class="search-container">
+                <div class="search-box" id="search-box">
+                    <div class="search-icon" aria-hidden="true"></div>
+                    <input type="text" class="search-input" placeholder="搜索" id="search-input" aria-label="站内搜索">
+                </div>
+                <button class="search-toggle" id="mobile-search-toggle" aria-label="搜索"></button>
+            </div>
+            <div class="header-actions">
+                <a class="action-btn" id="music-trigger" aria-label="打开音乐播放器">
+                    <div class="music-icon" aria-hidden="true"></div>
+                    音乐
+                </a>
+                <a href="./feedback.html" class="action-btn" aria-label="反馈">
+                    <div class="alert-icon" aria-hidden="true"></div>
+                    反馈
+                </a>
+                <a href="./help.html" class="action-btn" aria-label="帮助">
+                    <div class="help-icon" aria-hidden="true"></div>
+                    帮助
+                </a>
+                <a href="./login.html" class="action-btn" id="loginBtn" aria-label="登录">
+                    <div class="user-icon" id="userIcon" aria-hidden="true"></div>
+                    <span id="loginText">登录</span>
+                </a>
+            </div>
+        </header>
+        <div class="music-bar" id="musicBar">
+            <div class="music-bar-inner">
+                <div class="music-icon-small" aria-hidden="true"></div>
+                <div class="music-info">作者 - 标题</div>
+                <div class="music-controls">
+                    <button class="music-prev" aria-label="上一首"></button>
+                    <button class="music-next" aria-label="下一首"></button>
+                    <button class="music-close" aria-label="关闭音乐条"></button>
+                </div>
+            </div>
+        </div>
+        <main class="main">
+            <div class="carousel-container" aria-label="图片轮播" role="region">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-item">
+                        <a href="./page1.html">
+                            <img src="/image/carousel/c4ca4238a0b923820dcc509a6f75849b.png" alt="轮播图片1">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./page2.html">
+                            <img src="/image/carousel/c81e728d9d4c2f636f067f89cc14862c.png" alt="轮播图片2">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./page3.html">
+                            <img src="/image/carousel/eccbc87e4b5ce2fe28308fd9f2a7baf3.png" alt="轮播图片3">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./page4.html">
+                            <img src="/image/carousel/a87ff679a2f3e71d9181a67b7542122c.png" alt="轮播图片4">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="./page5.html">
+                            <img src="/image/carousel/e4da3b7fbbce2345d7772b0674a318d5.png" alt="轮播图片5">
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-icons">
+                    <span class="icon-heart" aria-label="喜欢"></span>
+                    <span class="icon-chat" aria-label="评论"></span>
+                    <span class="icon-star" aria-label="收藏"></span>
+                </div>
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <span class="indicator active" data-index="0" aria-label="第1张"></span>
+                    <span class="indicator" data-index="1" aria-label="第2张"></span>
+                    <span class="indicator" data-index="2" aria-label="第3张"></span>
+                    <span class="indicator" data-index="3" aria-label="第4张"></span>
+                    <span class="indicator" data-index="4" aria-label="第5张"></span>
+                </div>
+            </div>
+            <div class="functions">
+                <div class="top-buttons">
+                    <a href="./contacts.html" class="circle-btn">
+                        <div class="circle-icon">
+                            <img src="/image/icon/c81e728d9d4c2f636f067f89cc14862c.png" alt="通讯录">
+                        </div>
+                        <span>通讯录</span>
+                    </a>
+                    <a href="./album.html" class="circle-btn">
+                        <div class="circle-icon">
+                            <img src="/image/icon/eccbc87e4b5ce2fe28308fd9f2a7baf3.png" alt="云相册">
+                        </div>
+                        <span>云相册</span>
+                    </a>
+                    <a href="./impression.html" class="circle-btn">
+                        <div class="circle-icon">
+                            <img src="/image/icon/a87ff679a2f3e71d9181a67b7542122c.png" alt="后日记">
+                        </div>
+                        <span>后日记</span>
+                    </a>
+                    <a href="./chronology.html" class="circle-btn">
+                        <div class="circle-icon">
+                            <img src="/image/icon/e4da3b7fbbce2345d7772b0674a318d5.png" alt="大事记">
+                        </div>
+                        <span>大事记</span>
+                    </a>
+                </div>
+                <div class="ad-banner">
+                    <img src="/image/ad/banner.png" alt="推广活动">
+                </div>
+                <div class="card-buttons">
+                    <a href="./message.html" class="card-btn">
+                        <div class="card-text">
+                            <h3>留言</h3>
+                            <p>写下你的温柔</p>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/image/icon/1679091c5a880faf6fb5e6087eb1b2dc.png" alt="留言">
+                        </div>
+                    </a>
+                    <a href="./Q&A.html" class="card-btn">
+                        <div class="card-text">
+                            <h3>问答</h3>
+                            <p>答案在风中飘</p>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/image/icon/8f14e45fceea167a5a36dedd4bea2543.png" alt="问答">
+                        </div>
+                    </a>
+                    <a href="./friendcircle.html" class="card-btn">
+                        <div class="card-text">
+                            <h3>朋友圈</h3>
+                            <p>定格每一刻</p>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/image/icon/c9f0f895fb98ab9159f51fd0297e236d.png" alt="朋友圈">
+                        </div>
+                    </a>
+                    <a href="./more.html" class="card-btn">
+                        <div class="card-text">
+                            <h3>查看更多</h3>
+                            <p>未完待续的故事</p>
+                        </div>
+                        <div class="card-icon">
+                            <img src="/image/icon/45c48cce2e2d7fbdea1afc51c7c6ad26.png" alt="查看更多">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-left">
+                <div class="copyright">© 2026 <a href="https://togetherever.pages.dev" target="_blank" rel="noopener noreferrer">https://togetherever.pages.dev</a></div>
+                <div class="footer-links">
+                    <a href="./agreement/terms.html">使用条款</a>
+                    <span>|</span>
+                    <a href="./agreement/privacy.html">隐私政策</a>
+                    <span>|</span>
+                    <a href="./agreement/about.html">关于我们</a>
+                    <span>|</span>
+                    <a href="./agreement/cookie.html">Cookie</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="./like.html" class="like-btn">
+                    <span class="heart-icon" aria-hidden="true"></span>
+                    喜欢吗？
+                </a>
+            </div>
+        </footer>
+    </div>
+    <audio id="audio-player" preload="auto"></audio>
+    <script src="/script/home.js"></script>
+</body>
+</html>
