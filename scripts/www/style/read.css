@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #f5f5f7;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+    touch-action: none;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #1a73e8;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.reader-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 0;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    will-change: transform;
+}
+
+.card-header {
+    padding: 28px 32px 12px 32px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.card-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: #1e293b;
+}
+
+.card-header p {
+    font-size: 0.9rem;
+    color: #5b6e8c;
+    margin-top: 6px;
+}
+
+.scroll-content-wrapper {
+    position: relative;
+    padding: 24px 32px 16px 32px;
+    min-height: 460px;
+    max-height: 540px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.text-content {
+    background: #ffffff;
+    width: 100%;
+    overflow-y: visible;
+    padding-right: 8px;
+    scroll-behavior: smooth;
+}
+
+.text-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.text-content::-webkit-scrollbar-track {
+    background: #f0f2f5;
+    border-radius: 10px;
+}
+
+.text-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.plain-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #1e2a3e;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: 'Segoe UI', 'Microsoft YaHei', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 32px 28px 32px;
+    border-top: 1px solid #eef2f6;
+    background: #ffffff;
+}
+
+.btn-nav {
+    background: transparent;
+    border: 1px solid #d0d8e6;
+    padding: 10px 28px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1f3a6b;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 0px;
+}
+
+.btn-nav-primary {
+    background: #1a73e8;
+    border-color: #1a73e8;
+    color: white;
+}
+
+.btn-nav-primary:hover {
+    background: #0f5bb5;
+}
+
+.error-message {
+    color: #d14545;
+    background: #fff5f5;
+    border-left: 4px solid #d14545;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+
+@media (max-width: 680px) {
+    body {
+        padding: 12px;
+    }
+    .card-header {
+        padding: 20px 24px 10px 24px;
+    }
+    .card-header h1 {
+        font-size: 1.5rem;
+    }
+    .scroll-content-wrapper {
+        padding: 16px 24px 12px 24px;
+        min-height: 420px;
+    }
+    .nav-buttons {
+        padding: 16px 24px 22px 24px;
+    }
+    .btn-nav {
+        padding: 8px 20px;
+    }
+    .plain-text {
+        font-size: 0.9rem;
+    }
+}
