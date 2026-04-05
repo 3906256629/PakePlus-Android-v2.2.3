@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <link rel="icon" type="image/png" href="/image/icon/c4ca4238a0b923820dcc509a6f75849b.png">    
+    <title>Togetherever｜Cookie</title>
+    <link rel="stylesheet" href="/style/read.css">
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+</div>
+
+<div class="reader-card" id="readerCard">
+    <div class="card-header">
+        <h1>TogetherEver</h1>
+        <p>Cookie</p>
+    </div>
+
+    <div class="scroll-content-wrapper" id="scrollWrapper">
+        <div class="text-content" id="textContainer">
+            <div class="plain-text" id="plainText"></div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="btn-nav btn-nav-primary" id="backBtn">返回</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const DEFAULT_TXT_PATH = '/text/agreement/cookie.txt';
+        const URL_PARAM_NAME = 'src';
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const plainTextDiv = document.getElementById('plainText');
+        const backBtn = document.getElementById('backBtn');
+        const readerCard = document.getElementById('readerCard');
+
+        function getTextSourceUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sourceParam = urlParams.get(URL_PARAM_NAME);
+            if (sourceParam && sourceParam.trim() !== '') {
+                return sourceParam.trim();
+            }
+            return DEFAULT_TXT_PATH;
+        }
+
+        function showError(message) {
+            plainTextDiv.innerHTML = `<div class="error-message">加载失败：${escapeHtml(message)}<br>请检查文件路径或网络状态。</div>`;
+            if (loadingOverlay) {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 400);
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
+        }
+
+        function displayText(content) {
+            if (!content || content.trim() === '') {
+                plainTextDiv.innerText = '（文档内容为空）';
+            } else {
+                plainTextDiv.innerText = content;
+            }
+            if (loadingOverlay) {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 400);
+            }
+            const wrapper = document.getElementById('scrollWrapper');
+            if (wrapper) {
+                wrapper.scrollTop = 0;
+            }
+        }
+
+        function loadTextFromUrl(url) {
+            fetch(url, {
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: { 'Accept': 'text/plain' }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                displayText(data);
+            })
+            .catch(err => {
+                console.warn('文本加载失败:', err);
+                let errorMsg = err.message || '未知错误';
+                if (errorMsg.includes('Failed to fetch') || errorMsg.includes('NetworkError')) {
+                    errorMsg = '无法连接到服务器，请检查网络或文件是否存在';
+                }
+                showError(errorMsg);
+            });
+        }
+
+        function init() {
+            const sourceUrl = getTextSourceUrl();
+            readerCard.style.opacity = '1';
+            loadTextFromUrl(sourceUrl);
+            backBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.referrer && document.referrer !== '') {
+                    window.history.back();
+                } else {
+                    window.location.href = '/place/home.html';
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+</script>
+</body>
+</html>
