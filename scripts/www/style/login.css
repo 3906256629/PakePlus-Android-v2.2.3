@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eef2f6;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-header {
+    padding: 2rem 2rem 0.5rem 2rem;
+    text-align: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+}
+
+.login-sub {
+    color: #6c6f78;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+.login-form {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1e1f24;
+    margin-bottom: 0.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background-color: #ffffff;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.input-field:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 0.5rem;
+    font-family: inherit;
+}
+
+.login-btn:hover {
+    background-color: #0f5bb5;
+}
+
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #e6f4ea;
+    color: #137333;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.logout-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e1f24;
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    color: #1a73e8;
+    font-weight: 700;
+}
+
+.logout-desc {
+    color: #5f6368;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.logout-btn {
+    background-color: #f1f3f4;
+    color: #1f1f1f;
+    border: 1px solid #dadce0;
+    padding: 0.85rem 1.5rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    font-family: inherit;
+}
+
+.logout-btn:hover {
+    background-color: #e8eaed;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #5f6368;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #dadce0;
+}
+
+.home-link:hover {
+    color: #1a73e8;
+}
+
+.footer-note {
+    text-align: center;
+    padding: 1rem 2rem 1.5rem;
+    font-size: 0.75rem;
+    color: #9aa0a6;
+    border-top: 1px solid #f0f2f5;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 560px) {
+    .login-card {
+        max-width: 92%;
+    }
+    .login-header {
+        padding: 1.5rem 1.5rem 0.25rem 1.5rem;
+    }
+    .login-form {
+        padding: 1rem 1.5rem 1.8rem 1.5rem;
+    }
+    .logout-section {
+        padding: 1.5rem;
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
